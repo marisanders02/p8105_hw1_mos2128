@@ -1,0 +1,7 @@
+---
+title: "p8105_hw1_mos2128"
+author: "Mari Sanders"
+date: "2024-09-12"
+output: github_document
+---
+This document renders into a github document.
