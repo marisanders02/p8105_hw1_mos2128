@@ -4,4 +4,21 @@ author: "Mari Sanders"
 date: "2024-09-12"
 output: github_document
 ---
-This document renders into a github document.
+
+```{r, message = FALSE}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+This document uses `tidyverse` and `palmerpenguins` packages. 
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+The Penguins dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. 
+This means there are 344 observations. The rows in this data set are named
+`r names(penguins)`. The mean flipper length is `r mean(penguins$flipper_length_mm,)`
+
+
+
