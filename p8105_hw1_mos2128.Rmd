@@ -12,13 +12,20 @@ library(palmerpenguins)
 
 This document uses `tidyverse` and `palmerpenguins` packages. 
 
+# Problem 1
+
 ```{r}
 data("penguins", package = "palmerpenguins")
 ```
 
 The Penguins dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. 
 This means there are 344 observations. The rows in this data set are named
-`r names(penguins)`. The mean flipper length is `r mean(penguins$flipper_length_mm,)`
+`r names(penguins)`. The mean flipper length is `r mean(penguins$flipper_length_mm,na.rm = TRUE)`. 
+
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species))
+```
+
 
 
 
