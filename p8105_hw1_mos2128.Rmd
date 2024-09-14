@@ -15,17 +15,43 @@ This document uses `tidyverse` and `palmerpenguins` packages.
 # Problem 1
 
 ```{r}
-data("penguins", package = "palmerpenguins")
+data("penguins", package = "palmerpenguins") 
 ```
 
 The Penguins dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. 
 This means there are 344 observations. The rows in this data set are named
 `r names(penguins)`. The mean flipper length is `r mean(penguins$flipper_length_mm,na.rm = TRUE)`. 
 
-```{r}
-ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species))
+```{r, warning = FALSE}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+
+ggsave("bill_vs_flipper.png", plot = last_plot())
 ```
 
+# Problem 2 
 
+```{r}
+sample_df <- tibble(
+  norm = rnorm(10), 
+  logic = norm > 0, 
+  char = c("A","B","C","D","E","F","G","H","I","J"),
+  fact = factor(c(2,2,2,2,3,3,3,4,4,4), levels = c(2,3,4))
+)
+
+mean(pull(sample_df, var = norm))
+mean(pull(sample_df, var = logic))
+mean(pull(sample_df, var = char))
+mean(pull(sample_df, var = fact))
+```
+You can take the mean of an double vector and a logical vector, but not a character vector or a factor vector. 
+
+```{r results='hide', warning= FALSE}
+as.numeric(pull(sample_df, var = norm))
+as.numeric(pull(sample_df, var = logic))
+as.numeric(pull(sample_df, var = char))
+as.numeric(pull(sample_df, var = fact))
+```
+
+You are able to change the integers and logic values to numeric values, but you cannot change character vectors or factor vectors into numeric values, so this means you are unable to take the mean of those two types. Character vectors cannot be changed into numeric values because they are stored as character vectors. When you use `as.numeric` on a factor, it outputs the code of the level that that value is in, not the direct value. 
 
 
