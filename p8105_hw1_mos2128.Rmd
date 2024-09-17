@@ -43,7 +43,9 @@ mean(pull(sample_df, var = logic))
 mean(pull(sample_df, var = char))
 mean(pull(sample_df, var = fact))
 ```
-You can take the mean of an double vector and a logical vector, but not a character vector or a factor vector. 
+
+
+You can take the mean of an double type and a logical type, but not a character or a factor. 
 
 ```{r results='hide', warning= FALSE}
 as.numeric(pull(sample_df, var = norm))
@@ -52,6 +54,6 @@ as.numeric(pull(sample_df, var = char))
 as.numeric(pull(sample_df, var = fact))
 ```
 
-You are able to change the integers and logic values to numeric values, but you cannot change character vectors or factor vectors into numeric values, so this means you are unable to take the mean of those two types. Character vectors cannot be changed into numeric values because they are stored as character vectors. When you use `as.numeric` on a factor, it outputs the code of the level that that value is in, not the direct value. 
+You are able to change the integers and logic values to numeric values, but you cannot change character vectors or factor vectors into numeric values, so this means you are unable to take the mean of those two types. Character vectors cannot be changed into numeric values because they are stored as character vectors. When you use `as.numeric` on a factor, it outputs the code of the factor level that the value is in, not the direct value. 
 
 
