@@ -37,21 +37,42 @@ sample_df <- tibble(
   char = c("A","B","C","D","E","F","G","H","I","J"),
   fact = factor(c(2,2,2,2,3,3,3,4,4,4), levels = c(2,3,4))
 )
+sample_df %>% 
+  pull(var = norm) %>% 
+  mean()
 
-mean(pull(sample_df, var = norm))
-mean(pull(sample_df, var = logic))
-mean(pull(sample_df, var = char))
-mean(pull(sample_df, var = fact))
+sample_df %>% 
+  pull(var = logic) %>% 
+  mean()
+
+sample_df %>% 
+  pull(var = char) %>% 
+  mean()
+
+sample_df %>% 
+  pull(var = fact) %>% 
+  mean()
 ```
 
 
 You can take the mean of an double type and a logical type, but not a character or a factor. 
 
 ```{r results='hide', warning= FALSE}
-as.numeric(pull(sample_df, var = norm))
-as.numeric(pull(sample_df, var = logic))
-as.numeric(pull(sample_df, var = char))
-as.numeric(pull(sample_df, var = fact))
+sample_df %>% 
+  pull(var = norm) %>% 
+  as.numeric()
+
+sample_df %>% 
+  pull(var = logic) %>% 
+  as.numeric()
+
+sample_df %>% 
+  pull(var = char) %>% 
+  as.numeric()
+
+sample_df %>%  
+  pull(var = fact) %>% 
+  as.numeric()
 ```
 
 You are able to change the integers and logic values to numeric values, but you cannot change characters or factors into numeric values, so this means you are unable to take the mean of those two types. 
