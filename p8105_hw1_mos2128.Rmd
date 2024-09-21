@@ -1,7 +1,6 @@
 ---
-title: "p8105_hw1_mos2128"
+title: "P8105 Homework 1"
 author: "Mari Sanders"
-date: "2024-09-12"
 output: github_document
 ---
 
