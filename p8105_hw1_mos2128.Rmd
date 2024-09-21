@@ -23,7 +23,9 @@ This means there are 344 observations. The rows in this data set are named
 `r names(penguins)`. The mean flipper length is `r mean(pull(penguins, flipper_length_mm),na.rm = TRUE)`. 
 
 ```{r, warning = FALSE}
-ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+ggplot(penguins, 
+  aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
+  geom_point()
 
 ggsave("bill_vs_flipper.png", plot = last_plot())
 ```
@@ -53,8 +55,6 @@ sample_df %>%
   pull(var = fact) %>% 
   mean()
 ```
-
-
 You can take the mean of an double type and a logical type, but not a character or a factor. 
 
 ```{r results='hide', warning= FALSE}
@@ -77,6 +77,6 @@ sample_df %>%
 
 You are able to change the integers and logic values to numeric values, but you cannot change characters or factors into numeric values, so this means you are unable to take the mean of those two types. 
 
-Character vectors cannot be changed into numeric values because they are stored as characters and do not have a number equivalent. When you use `as.numeric` on a factor, it outputs the code of the factor level that the value is in, not the direct value. 
+Character vectors cannot be changed into numeric values because they are stored as characters and do not have a number equivalent. When you use `as.numeric` on a factor, it outputs the the factor that the value is in, not the direct value. 
 
 
